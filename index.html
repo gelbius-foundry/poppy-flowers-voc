@@ -1,0 +1,599 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wedding Florals VOC — prepared for Poppy</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --bg:#080b10; --bg2:#0b1018; --panel:#0f1620; --panel2:#121b27;
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --ink:#eaf0f7; --muted:#93a1b5; --faint:#5d6b80;
+    --accent:#34e2e4; --accent2:#7c8bff;
+    --pain:#ff6f61; --desire:#46e0a0; --obj:#b794f6; --gold:#f7c948;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); line-height:1.5; letter-spacing:.1px;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(52,226,228,.10), transparent 60%),
+      radial-gradient(900px 600px at 100% 0%, rgba(124,139,255,.10), transparent 55%),
+      linear-gradient(180deg,var(--bg),var(--bg2));
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:34px 26px 90px}
+  .mono{font-family:var(--mono)}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--faint)}
+
+  /* ---- Top bar ---- */
+  .topbar{display:flex; align-items:flex-end; justify-content:space-between;
+    gap:20px; padding-bottom:22px; border-bottom:1px solid var(--line); flex-wrap:wrap}
+  .brand .dot{display:inline-block; width:9px; height:9px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 12px var(--accent); margin-right:9px;
+    vertical-align:middle; animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .brand .label{font-family:var(--mono); font-size:12px; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--muted)}
+  h1{margin:.32em 0 0; font-size:42px; line-height:1.05; font-weight:680;
+    letter-spacing:-.5px}
+  h1 .accent{background:linear-gradient(95deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; color:transparent}
+  .runline{font-family:var(--mono); font-size:11.5px; color:var(--faint); text-align:right}
+  .hint{margin-top:14px; font-family:var(--mono); font-size:11.5px; color:var(--faint)}
+  .hint b{color:var(--accent); font-weight:500}
+
+  /* ---- Stat strip ---- */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0 12px}
+  .stat{background:linear-gradient(180deg,var(--panel2),var(--panel));
+    border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px;
+    position:relative; overflow:hidden}
+  .stat::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+    background:linear-gradient(90deg,var(--accent),transparent)}
+  .stat .num{font-family:var(--mono); font-size:34px; font-weight:600; letter-spacing:-1px}
+  .stat .cap{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--muted); margin-top:4px}
+
+  /* ---- Section scaffolding ---- */
+  section{margin-top:46px}
+  .shead{display:flex; align-items:baseline; gap:14px; margin-bottom:18px}
+  .shead .idx{font-family:var(--mono); font-size:12px; color:var(--faint)}
+  .shead h2{margin:0; font-size:22px; font-weight:640; letter-spacing:-.2px}
+  .shead .sub{color:var(--muted); font-size:13.5px; margin-left:auto;
+    font-family:var(--mono)}
+  .rule{flex:1; height:1px; background:var(--line)}
+
+  .grid{display:grid; gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));
+    border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px;
+    position:relative}
+  .card .top{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+  .rank{font-family:var(--mono); font-size:12px; font-weight:600; color:var(--bg);
+    background:var(--pain); width:26px; height:26px; border-radius:7px;
+    display:grid; place-items:center; flex:none}
+  .ctitle{font-weight:620; font-size:15.5px}
+
+  /* clickable quote — opens the exact comment on Reddit */
+  a.quote{display:block; text-decoration:none; color:var(--ink);
+    border-left:2px solid var(--line2); padding:5px 8px 5px 14px; margin:10px 0;
+    border-radius:0 8px 8px 0; transition:border-color .15s,color .15s,background .15s}
+  a.quote .qt{font-size:15px; font-style:italic}
+  a.quote .qt::before{content:"\201C"} a.quote .qt::after{content:"\201D"}
+  a.quote .ext{display:block; margin-top:7px; font-family:var(--mono); font-size:10.5px;
+    letter-spacing:.04em; color:var(--faint); transition:color .15s}
+  a.quote .ext::before{content:"\2197  "}
+  a.quote:hover{border-left-color:var(--accent); color:#fff; background:rgba(52,226,228,.06)}
+  a.quote:hover .ext{color:var(--accent)}
+  .meta{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:6px}
+  .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+    color:var(--muted); background:rgba(255,255,255,.04);
+    border:1px solid var(--line); border-radius:999px; padding:3px 9px}
+  .tag.sub{color:var(--accent); border-color:rgba(52,226,228,.3)}
+
+  /* intensity meter */
+  .meter{height:5px; border-radius:3px; background:rgba(255,255,255,.06); margin-top:12px; overflow:hidden}
+  .meter > i{display:block; height:100%; width:calc(var(--v,60)*1%);
+    border-radius:3px; background:linear-gradient(90deg,var(--pain),#ffb199)}
+  .desire .meter > i{background:linear-gradient(90deg,var(--desire),#9cf6cf)}
+  .desire a.quote{border-left-color:rgba(70,224,160,.4)}
+  .desire a.quote:hover{border-left-color:var(--desire); background:rgba(70,224,160,.06)}
+  .desire a.quote:hover .ext{color:var(--desire)}
+  .obj .meter > i{background:linear-gradient(90deg,var(--obj),#d6c4ff)}
+  .obj a.quote:hover{border-left-color:var(--obj); background:rgba(183,148,246,.06)}
+  .obj a.quote:hover .ext{color:var(--obj)}
+  .obj .rank{background:var(--obj)}
+  .desire .rank{background:var(--desire)}
+
+  /* ---- Swipe file ---- */
+  .swipe{background:
+      linear-gradient(180deg,rgba(247,201,72,.06),transparent),
+      linear-gradient(180deg,var(--panel2),var(--panel));
+    border:1px solid rgba(247,201,72,.22); border-radius:16px; padding:22px}
+  .swipe .grid{grid-template-columns:repeat(2,1fr); gap:10px}
+  a.phrase{display:flex; gap:11px; align-items:flex-start; padding:11px 13px; text-decoration:none;
+    color:var(--ink); background:rgba(255,255,255,.025); border:1px solid var(--line);
+    border-radius:10px; font-size:14px; transition:border-color .15s,background .15s,transform .12s}
+  a.phrase .mk{color:var(--gold); font-family:var(--mono); flex:none}
+  a.phrase:hover{border-color:rgba(247,201,72,.55); background:rgba(247,201,72,.09); transform:translateX(2px)}
+
+  /* ---- HERO: ad angles ---- */
+  .hero{margin-top:60px; padding:30px 26px 32px; border-radius:20px;
+    border:1px solid var(--line2); position:relative; overflow:hidden;
+    background:
+      radial-gradient(700px 320px at 15% -20%,rgba(124,139,255,.16),transparent 60%),
+      radial-gradient(700px 320px at 100% 120%,rgba(52,226,228,.14),transparent 60%),
+      linear-gradient(180deg,#0d141e,#0a0f17)}
+  .hero .badge{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--bg);
+    background:linear-gradient(95deg,var(--accent),var(--accent2));
+    padding:5px 12px; border-radius:999px; font-weight:600}
+  .hero h2{font-size:30px; margin:14px 0 4px; letter-spacing:-.5px}
+  .hero p.lead{color:var(--muted); margin:0 0 22px; max-width:620px; font-size:14.5px}
+  .angles{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  .angle{background:rgba(10,15,23,.6); border:1px solid var(--line2);
+    border-radius:14px; padding:18px; position:relative; transition:transform .15s,border-color .15s}
+  .angle:hover{transform:translateY(-3px); border-color:rgba(52,226,228,.5)}
+  .angle .n{position:absolute; top:14px; right:16px; font-family:var(--mono);
+    font-size:11px; color:var(--faint)}
+  .angle .name{font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:9px}
+  .angle .hook{font-size:18px; font-weight:600; line-height:1.28; letter-spacing:-.2px}
+  .angle .from{margin-top:11px; font-size:12px; color:var(--faint); font-style:italic;
+    border-top:1px dashed var(--line); padding-top:9px}
+  .angle .from a{color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--faint)}
+  .angle .from a:hover{color:var(--accent); border-color:var(--accent)}
+  .angle .from b{color:var(--muted); font-style:normal; font-family:var(--mono);
+    font-size:10px; letter-spacing:.1em; text-transform:uppercase}
+
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; color:var(--faint); display:flex;
+    justify-content:space-between; flex-wrap:wrap; gap:8px}
+
+  @media(max-width:820px){
+    .stats{grid-template-columns:repeat(2,1fr)} .g2,.g3,.angles,.swipe .grid{grid-template-columns:1fr}
+    h1{font-size:32px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<style>
+  /* additive only — the template's style block above is untouched */
+  .read .rank{background:var(--accent)}
+  .read .meter > i{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .read a.quote:hover{border-left-color:var(--accent)}
+  .verdict{font-size:13.5px; color:var(--muted); margin-top:10px; border-top:1px dashed var(--line); padding-top:9px}
+  .verdict b{color:var(--ink); font-weight:600}
+  .brandlink{color:inherit; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.18)}
+  .brandlink:hover{border-bottom-color:var(--accent)}
+  .note{background:linear-gradient(180deg,var(--panel2),var(--panel)); border:1px solid var(--line);
+    border-radius:14px; padding:16px 18px; margin-top:16px; font-size:13.5px; color:var(--muted)}
+  .note b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="label"><span class="dot"></span>Reddit Voice-of-Customer</span>
+      <h1>Wedding Florals <span class="accent">VOC Report</span></h1>
+      <div class="hint"><b>Every quote is clickable</b> — opens the exact comment on Reddit ↗</div>
+    </div>
+    <div class="runline">
+      r/weddingplanning &nbsp;·&nbsp; r/Weddingsunder10k &nbsp;·&nbsp; r/florists<br>
+      Prepared for Poppy · poppyflowers.com<br>
+      31 August 2026
+    </div>
+  </header>
+
+  <!-- ============ STAT STRIP ============ -->
+  <div class="stats">
+    <div class="stat"><div class="num">26</div><div class="cap">Threads pulled</div></div>
+    <div class="stat"><div class="num">470</div><div class="cap">Comments analyzed</div></div>
+    <div class="stat"><div class="num">3</div><div class="cap">Subreddits hit</div></div>
+    <div class="stat"><div class="num">32</div><div class="cap">Credits used</div></div>
+  </div>
+
+  <div class="note"><b>Read this first.</b> Two of the three subreddits are the demand side
+    (couples pricing florals) and one is the supply side (r/florists, working florists talking
+    among themselves about pricing, minimums and lead qualification). The supply-side quotes are
+    the most valuable material here: florists independently confirm the exact behaviours couples
+    complain about — no published prices, hard minimums, and deliberately declining low-budget
+    inquiries. One thread in the pull (<i>&ldquo;Took a risk on silk flowers&rdquo;</i>) was called out by
+    its own commenters as AI-written and has been excluded from the evidence below.</div>
+
+  <!-- ============ 01 · PAIN POINTS ============ -->
+  <section>
+    <div class="shead"><span class="idx">01</span><h2>Pain Points, Ranked</h2>
+      <span class="rule"></span><span class="sub">// what hurts, most-cited first</span></div>
+    <div class="grid g2">
+
+      <div class="card">
+        <div class="top"><span class="rank">1</span><span class="ctitle">Sticker shock arrives as an emotional event, not a budgeting one</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6ikoy0/"><span class="qt">I had a hard time with the fact that the flowers cost more than my student debt.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">14 of 26 threads</span></div>
+        <div class="meter"><i style="--v:96"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">2</span><span class="ctitle">No way to learn what anything costs before sinking hours into it</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/comment/nng70no/"><span class="qt">My only thing for #4 is that I have no idea how much anything costs, so I don't want to get ripped off by going with the first vendor with a good vibe haha</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">11 threads</span></div>
+        <div class="meter"><i style="--v:92"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">3</span><span class="ctitle">Full-service minimums delete the entire middle of the market</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6hpndt/"><span class="qt">I'm gonna DIY my flowers as a fellow PNW bride because all the local vendors want a minimum of $5k for a bouquet, a boutonniere, and a few table pieces 💔</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">9 threads · $4k–$6k typical</span></div>
+        <div class="meter"><i style="--v:88"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">4</span><span class="ctitle">Getting ghosted — and reading it as a verdict on their worth</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/is_my_floral_budget_unreasonable/"><span class="qt">It's been 2 weeks and no other florist has responded to me. Is my budget too small for what I'm asking or is it so small that I'm not worth their time?</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">confirmed by florists</span></div>
+        <div class="meter"><i style="--v:82"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">5</span><span class="ctitle">The package won't bend — you buy the florist's recipe or nothing</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1szffzi/florist_issues_and_shes_not_willing/"><span class="qt">Her team claims to be somewhat luxury and is refusing to give me more top heavy centerpiece floral centerpieces …. How do I go about this?</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">6 threads</span></div>
+        <div class="meter"><i style="--v:76"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">6</span><span class="ctitle">Quote creep after the couple has already committed</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1uxethm/comment/oxqqyef/"><span class="qt">She saw the venue and decided you were made of money and is trying to squeeze you for more.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">highest-engagement thread in pull</span></div>
+        <div class="meter"><i style="--v:74"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">7</span><span class="ctitle">What arrives isn't what the proposal promised</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknfgys/"><span class="qt">I paid $12k for what I thought would be super elaborate and beautiful florals based on my proposal and like half my tables were bare</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">4 threads · very high intensity</span></div>
+        <div class="meter"><i style="--v:70"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">8</span><span class="ctitle">&ldquo;Wedding tax&rdquo; resentment — paying for a perfection nobody guarantees</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknf0vb/"><span class="qt">this is exactly why the &ldquo;wedding tax&rdquo; is completely unjustified. People will say &ldquo;you are paying for perfection&rdquo; but there is no way to guarantee perfection.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">75 upvotes</span></div>
+        <div class="meter"><i style="--v:64"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">9</span><span class="ctitle">Decision fatigue closes the sale — badly</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uyz5d8/dont_do_floral_preservation/"><span class="qt">It was one of the last wedding planning things on my list and I was so tired and didn't want to do any more research, so I just gave in and paid.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">5 threads</span></div>
+        <div class="meter"><i style="--v:58"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">10</span><span class="ctitle">Budget shaming — asking the price marks you as a bad client</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1pgcnfu/comment/nsu8ik2/"><span class="qt">It's truly unfortunate that you are being budget shamed.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">single strong signal</span></div>
+        <div class="meter"><i style="--v:46"></i></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 02 · WHAT THEY WANT ============ -->
+  <section>
+    <div class="shead"><span class="idx">02</span><h2>What They Actually Want</h2>
+      <span class="rule"></span><span class="sub">// desire, in their words</span></div>
+    <div class="grid g2 desire">
+
+      <div class="card">
+        <div class="top"><span class="rank">1</span><span class="ctitle">A real number on the website, before any conversation</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7g6s9h/"><span class="qt">Each table price alone I would charge 3-500 for EACH, I wish when people look at pics the site should include rough pricing so you don't get the wrong idea</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">said by a florist</span></div>
+        <div class="meter"><i style="--v:94"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">2</span><span class="ctitle">Published prices measurably close more business</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oevdjd9/"><span class="qt">a year and a half ago I also put a &ldquo;starting prices&rdquo; price sheet on my website and that has cut out a TON of folks who just wanted basic pricing … It's gone from 2/3 yes, 1/3 no (or ghosted) to 3/4 yes, 1/4 no.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/florists</span><span class="tag">supply-side proof point</span></div>
+        <div class="meter"><i style="--v:90"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">3</span><span class="ctitle">À la carte — pay for the pieces they actually need</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy4mkvu/"><span class="qt">She offers à la carte selections rather than a typical floral package, so we were able to pick and choose what we actually needed</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">8 threads</span></div>
+        <div class="meter"><i style="--v:85"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">4</span><span class="ctitle">A benchmark — just tell me what normal costs</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/wedding_florals_cost/"><span class="qt">Am I right to advise them that's pretty reasonable? Do you guys have links and sources to average floral costs or example quotes and pricing structures from wedding florists?</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">the recurring thread format</span></div>
+        <div class="meter"><i style="--v:80"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">5</span><span class="ctitle">Delivery, setup and teardown — the part they'll defend paying for</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6gyg1k/"><span class="qt">unless you have an absolute ton of free, experienced labor, I'd say that quote is pretty reasonable for setup/breakdown included florals!</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">7 threads</span></div>
+        <div class="meter"><i style="--v:76"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">6</span><span class="ctitle">Someone to tell them where to splurge and where to skip</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/wedding_florals_on_a_2k_budget_where_to_splurge/"><span class="qt">I work in wedding florals and watch couples blow through their flower budget on stuff nobody ends up noticing.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">most-thanked post in pull</span></div>
+        <div class="meter"><i style="--v:72"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">7</span><span class="ctitle">To order small without being punished for it</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/comment/oagms5w/"><span class="qt">I emphasized that I'm okay with small bouquets.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">micro-wedding segment</span></div>
+        <div class="meter"><i style="--v:66"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">8</span><span class="ctitle">Repurposing designed in, not discovered late</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/comment/olkslik/"><span class="qt">Yah I think it's better to repurpose bouquets to decorate the bar, cake table, memorial table, etc, rather than putting them on tables.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">6 threads</span></div>
+        <div class="meter"><i style="--v:60"></i></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 03 · OBJECTIONS ============ -->
+  <section>
+    <div class="shead"><span class="idx">03</span><h2>Objections &amp; What's Burned Them</h2>
+      <span class="rule"></span><span class="sub">// why they don't buy</span></div>
+    <div class="grid g2 obj">
+
+      <div class="card">
+        <div class="top"><span class="rank">1</span><span class="ctitle">Costco / Sam's / Trader Joe's is the real competitor — and it's under $800</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1p4bhb2/comment/nqccgrr/"><span class="qt">Also I'll add Costco offers bridal packages now. Centerpieces and bouquets are less than $50. The only reason I went with my florist is she basically was the same price. Mind you this is in one of the most expensive cities in America.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">18 threads mention grocery/warehouse</span></div>
+        <div class="meter"><i style="--v:95"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">2</span><span class="ctitle">&ldquo;It dies in a day&rdquo; — the core value objection</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7jcx9z/"><span class="qt">I'm not paying for a florist- we're going faux. I can't justify that much money on flowers that die a few days later</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/Weddingsunder10k</span><span class="tag">also the top r/florists rant</span></div>
+        <div class="meter"><i style="--v:84"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">3</span><span class="ctitle">Faux and silk are the escape hatch, and they're getting good</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2irntr/"><span class="qt">We did silk flowers and our total cost was $900 … Best part is I will have my bouquet forever.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">11 threads</span></div>
+        <div class="meter"><i style="--v:78"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">4</span><span class="ctitle">They want to see and hold it before they commit</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1p4bhb2/comment/nqar22b/"><span class="qt">I asked to see the bouquet sizes in person. I ended up ordering the bridesmaid size for myself and ordered the next size down for my bridal party.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">direct risk to online-only</span></div>
+        <div class="meter"><i style="--v:72"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">5</span><span class="ctitle">Belief that a solo local artist beats anything scaled</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1oqherb/comment/nnj7b79/"><span class="qt">When I worked as a venue manager, I always found that individual contributors did a better job than one big company that provided DJ/decor/rentals/planner/whatever. People specialize for a reason</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">5 threads</span></div>
+        <div class="meter"><i style="--v:64"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">6</span><span class="ctitle">A friend-of-the-family florist will &ldquo;do it for cost&rdquo;</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1p4bhb2/comment/nqas7b1/"><span class="qt">I, on the other hand have a good friend who owns her own little floral shop and she only charged me $2k for everything</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">7 threads · often backfires</span></div>
+        <div class="meter"><i style="--v:56"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">7</span><span class="ctitle">Rental faux disappointed the people who tried it</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2kciah/"><span class="qt">I got tired of making arrangements so I rented some through Something Borrowed. I was not impressed with the quality.</span><span class="ext">view on Reddit</span></a>
+        <div class="meta"><span class="tag sub">r/weddingplanning</span><span class="tag">single strong signal</span></div>
+        <div class="meter"><i style="--v:40"></i></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 04 · SWIPE FILE ============ -->
+  <section>
+    <div class="shead"><span class="idx">04</span><h2>Swipe File</h2>
+      <span class="rule"></span><span class="sub">// exact phrases to lift into copy</span></div>
+    <div class="swipe">
+      <div class="grid">
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6ikoy0/"><span class="mk">&gt;</span><span>the flowers cost more than my student debt</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6icmuk/"><span class="mk">&gt;</span><span>Investment is my new trigger word</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/comment/nng70no/"><span class="mk">&gt;</span><span>I have no idea how much anything costs, so I don't want to get ripped off</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/is_my_floral_budget_unreasonable/"><span class="mk">&gt;</span><span>so small that I'm not worth their time</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy5be7s/"><span class="mk">&gt;</span><span>The upcharge for weddings is infuriating!</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5kz1ez/"><span class="mk">&gt;</span><span>You pay for the artistry, not the duration</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1pgcnfu/comment/nsu8ik2/"><span class="mk">&gt;</span><span>It's truly unfortunate that you are being budget shamed.</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7g6s9h/"><span class="mk">&gt;</span><span>I wish when people look at pics the site should include rough pricing so you don't get the wrong idea</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/comment/oacban3/"><span class="mk">&gt;</span><span>There is a $5,000 minimum and we'll need at least three meetings in order to fully understand your vision.</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/what_are_your_wedding_pricing_policies/"><span class="mk">&gt;</span><span>We can't give you stem prices or a quote till you sign saying you will go through us for your wedding</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknf0vb/"><span class="mk">&gt;</span><span>the &ldquo;wedding tax&rdquo; is completely unjustified</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/low_budget_clients/"><span class="mk">&gt;</span><span>It's just going to the trash after the event anyway</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/floral_cost_question/"><span class="mk">&gt;</span><span>we were shocked that our wedding planners said that simple florals would be at minimum $6,500</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6hpndt/"><span class="mk">&gt;</span><span>all the local vendors want a minimum of $5k for a bouquet, a boutonniere, and a few table pieces</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknfgys/"><span class="mk">&gt;</span><span>half my tables were bare</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2irntr/"><span class="mk">&gt;</span><span>Best part is I will have my bouquet forever.</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/810k_some_small_wedding_planning_tips_i_wish_id/"><span class="mk">&gt;</span><span>Don't over-research suppliers – We wasted hours comparing florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5kcgvl/"><span class="mk">&gt;</span><span>the cheapest clients are always the hardest work</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2k5td2/"><span class="mk">&gt;</span><span>It took up my entire week and it's the only thing I did for the wedding.</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/comment/olmrkiy/"><span class="mk">&gt;</span><span>That's about my flower budget and pretty much exactly what I'm doing. Thanks for the validation!</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 · POPPY READ ============ -->
+  <section>
+    <div class="shead"><span class="idx">05</span><h2>What This Means for Poppy</h2>
+      <span class="rule"></span><span class="sub">// the model vs. the evidence</span></div>
+    <div class="grid g2 read">
+
+      <div class="card">
+        <div class="top"><span class="rank">✓</span><span class="ctitle">The $1,750 minimum sits in a lane nobody is serving</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/comment/oacban3/"><span class="qt">There is a $5,000 minimum and we'll need at least three meetings in order to fully understand your vision.</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> full-service minimums cluster at $4k–$6k, and everything below that
+          falls off a cliff to Costco. Poppy's floor is the only structured offer in the gap. Lead with the
+          floor, not the average — $1,750 is the differentiator, $3,400 is not.</div>
+        <div class="meter"><i style="--v:92"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">✓</span><span class="ctitle">Transparent pricing isn't just nicer — it converts</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oevdjd9/"><span class="qt">It's gone from 2/3 yes, 1/3 no (or ghosted) to 3/4 yes, 1/4 no.</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> a working florist reports publishing starting prices moved their close
+          rate from ~67% to ~75%. Poppy's whole thesis has independent supply-side proof — and it's quotable
+          in market-education content aimed at couples.</div>
+        <div class="meter"><i style="--v:88"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">✓</span><span class="ctitle">The 60-day change window answers the angriest thread in the set</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1uxethm/7k_just_got_a_terrible_email_from_my_florist_that/"><span class="qt">I feel so cheated and am beyond stressed already. I'm so sad. Will be getting grocery store flowers now…</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> the fear isn't the price, it's the price <i>changing</i>. Note the last line —
+          quote creep pushes couples straight to Costco. &ldquo;No mystery fees&rdquo; should be stated as a
+          guarantee with a date on it, not a brand adjective.</div>
+        <div class="meter"><i style="--v:84"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">✓</span><span class="ctitle">No exclusivity matches how couples already buy</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1p4bhb2/comment/nqcnfm1/"><span class="qt">I ended up getting two floral pieces from a florist for church (long story) but those were wilting by the end of the night!</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> mixed sourcing is already the norm — florist for the bouquet, warehouse
+          club for the tables. Poppy's no-exclusivity policy lets it be the &ldquo;hero pieces&rdquo; vendor rather
+          than losing the whole order on total price.</div>
+        <div class="meter"><i style="--v:78"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">!</span><span class="ctitle">Exposure: the sub-$1,750 segment is large, loud and organized</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/comment/olo7phn/"><span class="qt">Local grocery stores with a floral department are great for this. I think I got everything, bouquet, husbands flower, 8 table centerpieces and some large potted ferns for extra greenery for around $250.</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> r/Weddingsunder10k treats $200–$800 all-in as achievable and shares
+          receipts. Poppy will not win on price here and shouldn't try — win on the week of labour DIY costs
+          them, and on setup/teardown nobody else does.</div>
+        <div class="meter"><i style="--v:86"></i></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><span class="rank">!</span><span class="ctitle">Exposure: buying sight-unseen from a company you'll never meet</span></div>
+        <a class="quote" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/florist_got_date_mixed_up_no_flowers/"><span class="qt">While we were getting ready, I saw another florist company's truck outside and was confused. I guess my florist called for back up when she realized the mistake?</span><span class="ext">view on Reddit</span></a>
+        <div class="verdict"><b>Read:</b> the delivery-day horror story is the highest-emotion content in the
+          category and it cuts against a remote, quiz-based model hardest. Proof beats reassurance: real
+          delivered-vs-proposal photo pairs, a named designer, a stated backup plan.</div>
+        <div class="meter"><i style="--v:80"></i></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ HERO · AD ANGLES ============ -->
+  <section class="hero" id="angles">
+    <span class="badge">◆ The Payoff</span>
+    <h2>10 Ad Angles, Ready to Test</h2>
+    <p class="lead">Each hook is built from the pains, desires, and objections above —
+      phrased in the customer's own language. Drop straight into a Meta test.</p>
+    <div class="angles">
+
+      <div class="angle">
+        <span class="n">01</span>
+        <div class="name">Price before conversation</div>
+        <div class="hook">See the price first. Talk to a designer second — or never.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/comment/nng70no/">&ldquo;I have no idea how much anything costs&rdquo; ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">02</span>
+        <div class="name">Anti-minimum</div>
+        <div class="hook">$5,000 minimum and three meetings. For a bouquet and a boutonnière.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6hpndt/">the $5k-minimum PNW bride ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">03</span>
+        <div class="name">Ghosted</div>
+        <div class="hook">Your budget isn't too small. You just asked the wrong florist.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/is_my_floral_budget_unreasonable/">&ldquo;so small that I'm not worth their time&rdquo; ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">04</span>
+        <div class="name">No quote creep</div>
+        <div class="hook">The number you see today is the number you pay in twelve months.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1uxethm/comment/oxqqyef/">the $600 quote that became $1,300 ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">05</span>
+        <div class="name">Sticker-shock rescue</div>
+        <div class="hook">You're not crazy. $6,500 for ten centerpieces is not the only number out there.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/floral_cost_question/">the $6,500 &ldquo;simple florals&rdquo; quote ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">06</span>
+        <div class="name">À la carte permission</div>
+        <div class="hook">Order the bouquet. Skip the boutonnières. Nobody's counting.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/wedding_florals_on_a_2k_budget_where_to_splurge/">a florist's own splurge/skip list ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">07</span>
+        <div class="name">Wedding tax</div>
+        <div class="hook">Same flowers. Same week. Different word on the invoice.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy5be7s/">&ldquo;The upcharge for weddings is infuriating!&rdquo; ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">08</span>
+        <div class="name">DIY reality check</div>
+        <div class="hook">Costco flowers cost $400 and one entire week of your life.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2k5td2/">&ldquo;It took up my entire week&rdquo; ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">09</span>
+        <div class="name">Real flowers, real price</div>
+        <div class="hook">Your venue said no to silk. Your budget said no to $7,500. Here's door three.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy5b4md/">&ldquo;our venue doesn't allow faux florals&rdquo; ↗</a></div>
+      </div>
+
+      <div class="angle">
+        <span class="n">10</span>
+        <div class="name">Delivered as proposed</div>
+        <div class="hook">The proposal you approved is the wedding that shows up.</div>
+        <div class="from"><b>Built from</b> &nbsp;<a target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknfgys/">&ldquo;half my tables were bare&rdquo; ↗</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>Reddit VOC · ScrapeCreators API · 32 credits · r/weddingplanning, r/Weddingsunder10k, r/florists</span>
+    <span><a class="brandlink" href="https://foundrysolutions.ai">Foundry Solutions</a> · generated 31 August 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
