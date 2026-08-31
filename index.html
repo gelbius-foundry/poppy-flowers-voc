@@ -178,6 +178,20 @@
   .note{background:linear-gradient(180deg,var(--panel2),var(--panel)); border:1px solid var(--line);
     border-radius:14px; padding:16px 18px; margin-top:16px; font-size:13.5px; color:var(--muted)}
   .note b{color:var(--ink)}
+  .swipeh{display:flex; align-items:baseline; gap:12px; margin:26px 0 10px; flex-wrap:wrap}
+  .swipeh .who{font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    font-weight:600; padding:4px 11px; border-radius:999px}
+  .swipeh.cust .who{color:var(--bg); background:var(--gold)}
+  .swipeh.sup .who{color:var(--bg); background:var(--accent)}
+  .swipeh .what{font-family:var(--mono); font-size:11.5px; color:var(--faint)}
+  .swipe.sup{border-color:rgba(52,226,228,.24);
+    background:linear-gradient(180deg,rgba(52,226,228,.06),transparent),
+      linear-gradient(180deg,var(--panel2),var(--panel))}
+  .swipe.sup a.phrase .mk{color:var(--accent)}
+  .swipe.sup a.phrase:hover{border-color:rgba(52,226,228,.55); background:rgba(52,226,228,.09)}
+  a.phrase .src{margin-left:auto; font-family:var(--mono); font-size:10px; color:var(--faint);
+    white-space:nowrap; padding-top:2px}
+  .note a.brandlink{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -418,31 +432,73 @@
   <!-- ============ 04 · SWIPE FILE ============ -->
   <section>
     <div class="shead"><span class="idx">04</span><h2>Swipe File</h2>
-      <span class="rule"></span><span class="sub">// exact phrases to lift into copy</span></div>
+      <span class="rule"></span><span class="sub">// split by who the message is for</span></div>
+
+    <div class="note" style="margin-top:0"><b>Why this is split.</b> Poppy runs a two-sided business:
+      couples buy the flowers, and the <a class="brandlink" href="https://www.poppyflowers.com/poppy-partner-network">Poppy
+      Partner Network</a> &mdash; ~1,000 florists across 80 U.S. cities &mdash; fulfils them, earning 10&percnt; on a
+      referral or 20&percnt; to design. Those two audiences respond to opposite halves of the same evidence. A line
+      that wins a couple (&ldquo;minimums are absurd&rdquo;) insults a florist; a line that wins a florist
+      (&ldquo;stop writing free quotes&rdquo;) means nothing to a couple. Every phrase below is tagged
+      with the subreddit it came from.</div>
+
+    <div class="swipeh cust"><span class="who">A &middot; Couple-facing</span>
+      <span class="what">demand side &mdash; quiz, proposal, paid social, landing pages</span></div>
     <div class="swipe">
       <div class="grid">
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6ikoy0/"><span class="mk">&gt;</span><span>the flowers cost more than my student debt</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6icmuk/"><span class="mk">&gt;</span><span>Investment is my new trigger word</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/comment/nng70no/"><span class="mk">&gt;</span><span>I have no idea how much anything costs, so I don't want to get ripped off</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/is_my_floral_budget_unreasonable/"><span class="mk">&gt;</span><span>so small that I'm not worth their time</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy5be7s/"><span class="mk">&gt;</span><span>The upcharge for weddings is infuriating!</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5kz1ez/"><span class="mk">&gt;</span><span>You pay for the artistry, not the duration</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1pgcnfu/comment/nsu8ik2/"><span class="mk">&gt;</span><span>It's truly unfortunate that you are being budget shamed.</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7g6s9h/"><span class="mk">&gt;</span><span>I wish when people look at pics the site should include rough pricing so you don't get the wrong idea</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/comment/oacban3/"><span class="mk">&gt;</span><span>There is a $5,000 minimum and we'll need at least three meetings in order to fully understand your vision.</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/what_are_your_wedding_pricing_policies/"><span class="mk">&gt;</span><span>We can't give you stem prices or a quote till you sign saying you will go through us for your wedding</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknf0vb/"><span class="mk">&gt;</span><span>the &ldquo;wedding tax&rdquo; is completely unjustified</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/low_budget_clients/"><span class="mk">&gt;</span><span>It's just going to the trash after the event anyway</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/floral_cost_question/"><span class="mk">&gt;</span><span>we were shocked that our wedding planners said that simple florals would be at minimum $6,500</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6hpndt/"><span class="mk">&gt;</span><span>all the local vendors want a minimum of $5k for a bouquet, a boutonniere, and a few table pieces</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknfgys/"><span class="mk">&gt;</span><span>half my tables were bare</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2irntr/"><span class="mk">&gt;</span><span>Best part is I will have my bouquet forever.</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/810k_some_small_wedding_planning_tips_i_wish_id/"><span class="mk">&gt;</span><span>Don't over-research suppliers – We wasted hours comparing florists</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5kcgvl/"><span class="mk">&gt;</span><span>the cheapest clients are always the hardest work</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2k5td2/"><span class="mk">&gt;</span><span>It took up my entire week and it's the only thing I did for the wedding.</span></a>
-        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/comment/olmrkiy/"><span class="mk">&gt;</span><span>That's about my flower budget and pretty much exactly what I'm doing. Thanks for the validation!</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6ikoy0/"><span class="mk">&gt;</span><span>the flowers cost more than my student debt</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6icmuk/"><span class="mk">&gt;</span><span>Investment is my new trigger word</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/comment/nng70no/"><span class="mk">&gt;</span><span>I have no idea how much anything costs, so I don’t want to get ripped off</span><span class="src">r/Weddingsunder10k</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/is_my_floral_budget_unreasonable/"><span class="mk">&gt;</span><span>so small that I’m not worth their time</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy5be7s/"><span class="mk">&gt;</span><span>The upcharge for weddings is infuriating!</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/floral_cost_question/"><span class="mk">&gt;</span><span>we were shocked that our wedding planners said that simple florals would be at minimum $6,500</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1w0y8ur/comment/p6hpndt/"><span class="mk">&gt;</span><span>all the local vendors want a minimum of $5k for a bouquet, a boutonniere, and a few table pieces</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1rt4q95/comment/oac82nq/"><span class="mk">&gt;</span><span>There is a $5,000 minimum and we'll need at least three meetings in order to fully understand your vision.</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oknf0vb/"><span class="mk">&gt;</span><span>the “wedding tax” is completely unjustified</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1t76zv0/comment/oko7vye/"><span class="mk">&gt;</span><span>half my tables were bare</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7hykkp/"><span class="mk">&gt;</span><span>I can’t justify that much money on flowers that die a few days later</span><span class="src">r/Weddingsunder10k</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2irntr/"><span class="mk">&gt;</span><span>Best part is I will have my bouquet forever.</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1vj5gyq/comment/p2jnrp4/"><span class="mk">&gt;</span><span>It took up my entire week and it's the only thing I did for the wedding.</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1oq46gs/810k_some_small_wedding_planning_tips_i_wish_id/"><span class="mk">&gt;</span><span>Don’t over-research suppliers</span><span class="src">r/Weddingsunder10k</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1pgcnfu/comment/nsu74nh/"><span class="mk">&gt;</span><span>It's truly unfortunate that you are being budget shamed.</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1uz4v06/comment/oy4udop/"><span class="mk">&gt;</span><span>couples pay any price they are told to blindly</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1tbzpcn/comment/oloh3bu/"><span class="mk">&gt;</span><span>Thanks for the validation!</span><span class="src">r/Weddingsunder10k</span></a>
       </div>
     </div>
+
+    <div class="swipeh sup"><span class="who">B &middot; Florist-facing</span>
+      <span class="what">supply side &mdash; Partner Network recruitment, trade pages, designer outreach</span></div>
+    <div class="swipe sup">
+      <div class="grid">
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1shgvip/picking_clients_for_weddings_and_events/"><span class="mk">&gt;</span><span>how much time goes into responding to enquiries that were never going to book</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1shgvip/picking_clients_for_weddings_and_events/"><span class="mk">&gt;</span><span>I started tracking mine and was genuinely shocked</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oewxouc/"><span class="mk">&gt;</span><span>Wasted time is very costly and estimates take a lot of time</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oewxouc/"><span class="mk">&gt;</span><span>budget brides will often take your well-thought-out estimate to a budget shop and ask them if they can do the same for less</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oevdjd9/"><span class="mk">&gt;</span><span>It's gone from 2/3 yes, 1/3 no (or ghosted) to 3/4 yes, 1/4 no</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/what_are_your_wedding_pricing_policies/"><span class="mk">&gt;</span><span>felt gross having to tell brides "well I can't tell you a price because we don't want you price shopping"</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sowjo6/comment/ogw0kky/"><span class="mk">&gt;</span><span>they just stop talking to me because it is too much of a shock</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oevijsg/"><span class="mk">&gt;</span><span>if you know what you want, I can tell you what it will cost. If you know what you want to spend, I can tell you what you can get</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1sf5tjl/comment/oev46ez/"><span class="mk">&gt;</span><span>I never want to be chosen because I was the cheaper option</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5kcgvl/"><span class="mk">&gt;</span><span>the cheapest clients are always the hardest work, so if you can, up your minimum spend for events</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5ldezz/"><span class="mk">&gt;</span><span>I tell them unfortunately someone has already booked that day</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5lcvy0/"><span class="mk">&gt;</span><span>You pay for the artistry, not the duration</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/low_budget_clients/"><span class="mk">&gt;</span><span>It’s just going to the trash after the event anyway</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1rkttoe/comment/o8otpnj/"><span class="mk">&gt;</span><span>so many florists - at least around me - are shutting down</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1rkttoe/comment/o8otpnj/"><span class="mk">&gt;</span><span>I just wish we as florists had more options</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1rkttoe/comment/o8pq37h/"><span class="mk">&gt;</span><span>but ya hate to price yourself out</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1rkttoe/industry_rant_so_stressed_about_costs/"><span class="mk">&gt;</span><span>feeling so glum about my job that I normally love</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1si7k7g/comment/oftk7dr/"><span class="mk">&gt;</span><span>derprice your creativity and time spent.</span><span class="src">r/florists</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/weddingplanning/comments/1pgcnfu/comment/nss2yxg/"><span class="mk">&gt;</span><span>The florist’s time and skill is actually what costs a lot more than the flowers do</span><span class="src">r/weddingplanning</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/Weddingsunder10k/comments/1revr8s/comment/o7g6s9h/"><span class="mk">&gt;</span><span>I wish when people look at pics the site should include rough pricing so you don’t get the wrong idea</span><span class="src">r/Weddingsunder10k</span></a>
+        <a class="phrase" target="_blank" rel="noopener" href="https://www.reddit.com/r/florists/comments/1vwvkci/comment/p5m5672/"><span class="mk">&gt;</span><span>e not their personal therapist lol</span><span class="src">r/florists</span></a>
+      </div>
+    </div>
+
+    <div class="note"><b>The hinge.</b> The same fact sells both sides. Couples hate that no florist
+      publishes a price; florists hate writing hour-long quotes for people who were never going to book.
+      Poppy's fixed price list is the one artifact that fixes both &mdash; and the recruitment pitch writes
+      itself from r/florists' own words: <i>you keep the design work, we absorb the sales work you
+      already resent.</i></div>
   </section>
 
   <!-- ============ 05 · POPPY READ ============ -->
