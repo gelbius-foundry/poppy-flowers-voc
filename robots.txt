@@ -1,0 +1,7 @@
+# Client-facing research artifact. Not for search indexes.
+# NOTE: crawlers only honor robots.txt at the host root
+# (https://gelbius-foundry.github.io/robots.txt). This file is a
+# local marker; the per-page <meta name="robots"> tags are the
+# enforcing signal here.
+User-agent: *
+Disallow: /
