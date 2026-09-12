@@ -192,10 +192,27 @@
   a.phrase .src{margin-left:auto; font-family:var(--mono); font-size:10px; color:var(--faint);
     white-space:nowrap; padding-top:2px}
   .note a.brandlink{color:var(--ink)}
+
+  .toplinks{display:flex; align-items:center; justify-content:space-between; gap:14px;
+    flex-wrap:wrap; margin-bottom:14px; font-family:var(--mono); font-size:11.5px; color:var(--faint)}
+  .toplinks .back{color:var(--muted)}
+  .toplinks .back:hover{color:var(--accent)}
+  .secnav{display:flex; flex-wrap:wrap; gap:8px 14px; margin:18px 0 4px; padding:12px 0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:11.5px}
+  .secnav a{color:var(--muted); text-decoration:none; border-bottom:1px solid transparent;
+    letter-spacing:.04em}
+  .secnav a:hover{color:var(--accent); border-bottom-color:rgba(52,226,228,.45)}
+  .secnav .sep{color:var(--faint); opacity:.5}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+  <!-- ============ FOUNDRY + NAV ============ -->
+  <div class="toplinks">
+    <a class="brandlink back" href="https://foundrysolutions.ai/?utm_source=report&utm_medium=email&utm_campaign=voc-research">← Foundry Solutions</a>
+  </div>
 
   <!-- ============ TOP BAR ============ -->
   <header class="topbar">
@@ -210,6 +227,20 @@
       31 August 2026
     </div>
   </header>
+
+  <nav class="secnav" aria-label="Sections">
+    <a href="#pain-points">Pain points</a>
+    <span class="sep">·</span>
+    <a href="#desires">Desires</a>
+    <span class="sep">·</span>
+    <a href="#objections">Objections</a>
+    <span class="sep">·</span>
+    <a href="#swipe-file">Swipe file</a>
+    <span class="sep">·</span>
+    <a href="#for-poppy">For Poppy</a>
+    <span class="sep">·</span>
+    <a href="#angles">Ad angles</a>
+  </nav>
 
   <!-- ============ STAT STRIP ============ -->
   <div class="stats">
@@ -228,7 +259,7 @@
     its own commenters as AI-written and has been excluded from the evidence below.</div>
 
   <!-- ============ 01 · PAIN POINTS ============ -->
-  <section>
+  <section id="pain-points">
     <div class="shead"><span class="idx">01</span><h2>Pain Points, Ranked</h2>
       <span class="rule"></span><span class="sub">// what hurts, most-cited first</span></div>
     <div class="grid g2">
@@ -307,7 +338,7 @@
   </section>
 
   <!-- ============ 02 · WHAT THEY WANT ============ -->
-  <section>
+  <section id="desires">
     <div class="shead"><span class="idx">02</span><h2>What They Actually Want</h2>
       <span class="rule"></span><span class="sub">// desire, in their words</span></div>
     <div class="grid g2 desire">
@@ -372,7 +403,7 @@
   </section>
 
   <!-- ============ 03 · OBJECTIONS ============ -->
-  <section>
+  <section id="objections">
     <div class="shead"><span class="idx">03</span><h2>Objections &amp; What's Burned Them</h2>
       <span class="rule"></span><span class="sub">// why they don't buy</span></div>
     <div class="grid g2 obj">
@@ -430,7 +461,7 @@
   </section>
 
   <!-- ============ 04 · SWIPE FILE ============ -->
-  <section>
+  <section id="swipe-file">
     <div class="shead"><span class="idx">04</span><h2>Swipe File</h2>
       <span class="rule"></span><span class="sub">// split by who the message is for</span></div>
 
@@ -502,7 +533,7 @@
   </section>
 
   <!-- ============ 05 · POPPY READ ============ -->
-  <section>
+  <section id="for-poppy">
     <div class="shead"><span class="idx">05</span><h2>What This Means for Poppy</h2>
       <span class="rule"></span><span class="sub">// the model vs. the evidence</span></div>
     <div class="grid g2 read">
@@ -652,7 +683,7 @@
 
   <footer>
     <span>Reddit VOC · ScrapeCreators API · 32 credits · r/weddingplanning, r/Weddingsunder10k, r/florists</span>
-    <span><a class="brandlink" href="https://foundrysolutions.ai">Foundry Solutions</a> · generated 31 August 2026</span>
+    <span><a class="brandlink" href="https://foundrysolutions.ai/?utm_source=report&utm_medium=email&utm_campaign=voc-research">Foundry Solutions</a> · generated 31 August 2026</span>
   </footer>
 
 </div>
